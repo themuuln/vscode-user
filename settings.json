@@ -1318,7 +1318,6 @@
   "terminal.external.osxExec": "iTerm.app",
   "workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
   "editor.matchBrackets": "never",
-  "windsurf.autocompleteSpeed": "fast",
   "workbench.colorCustomizations": {
     "terminal.background": "#00000000",
     "findThenJump.textDecorationForeground": "#000",
@@ -1328,7 +1327,7 @@
   "breadcrumbs.enabled": false,
 
   "workbench.layoutControl.enabled": false,
-  "workbench.colorTheme": "One Monokai",
+  "workbench.colorTheme": "One Dark Pro Darker",
   "whichkey.sortOrder": "custom",
   "whichkey.showButtons": false,
   "whichkey.useFullWidthCharacters": true,
@@ -1350,7 +1349,8 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "editor.cursorBlinking": "expand",
-  "editor.cursorSmoothCaretAnimation": "on"
+  "editor.cursorSmoothCaretAnimation": "on",
+  "windsurf.enableSupercomplete": false
   // "editor.tokenColorCustomizations": {
   //   "textMateRules": [
   //     {
