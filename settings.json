@@ -120,6 +120,10 @@
   
     // Exclude files
     "files.exclude": {
+      "**/globalStorage": true,
+      "**/workspaceStorage": true,
+      "**/snippets": true,
+      "**/History": true,
       "**/flutter_01.log": true,
       "**/.svn": true,
       "**/.hg": true,
