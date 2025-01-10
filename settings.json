@@ -24,7 +24,7 @@
   "editor.lineNumbers": "relative",
   "workbench.activityBar.location": "hidden",
   "window.density.editorTabHeight": "compact",
-  "editor.lineHeight": 36,
+  "editor.lineHeight": 34,
   "github.copilot.chat.followUps": "always",
   "github.copilot.chat.localeOverride": "en",
 
@@ -522,7 +522,9 @@
     "**/app/**/layout.tsx": "${dirname} - Layout",
     "**/components/**/index.tsx": "${dirname} - Component",
 
-    "**/lib/**/index.dart": "${dirname}.dart",
+    "**/lib/**/index.dart": "${dirname}",
+    "**/lib/**/index.function.dart": "${dirname}.fn",
+    "**/lib/**/index.widget.dart": "${dirname}.ui",
   },
   "tailwindCSS.emmetCompletions": true, // i use emmet everytime
   "typescript.suggest.paths": true,
@@ -690,7 +692,14 @@
   // For VSCode Forks
   "windsurf.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery",
   "windsurf.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "gitlens.graph.minimap.additionalTypes": [
+    "localBranches",
+    "stashes",
+    "remoteBranches",
+    "pullRequests",
+    "tags"
+  ]
   // For Recursive Font
   // "editor.tokenColorCustomizations": {
   //   "textMateRules": [
