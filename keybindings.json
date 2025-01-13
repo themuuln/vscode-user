@@ -120,5 +120,9 @@
     "command": "-editor.action.quickFix",
     "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
   },
+  {
+    "key": "cmd+s",
+    "command": "-workbench.action.files.save"
+  },
 ]
 

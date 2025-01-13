@@ -5,7 +5,7 @@
   // "editor.fontFamily": "Hack Nerd Font",
   // "editor.fontFamily": "Fira Code iCursive S12",
   "terminal.integrated.fontSize": 14,
-  "editor.fontSize": 20,
+  "editor.fontSize": 18,
   "editor.fontWeight": "350",
   "editor.fontLigatures": true,
   "editor.fontVariations": false,
@@ -23,9 +23,8 @@
   "editor.cursorSurroundingLines": 5,
   "search.showLineNumbers": true,
   "editor.lineNumbers": "relative",
-  "workbench.activityBar.location": "hidden",
   "window.density.editorTabHeight": "compact",
-  "editor.lineHeight": 34,
+  "editor.lineHeight": 32,
   "github.copilot.chat.followUps": "always",
   "github.copilot.chat.localeOverride": "en",
 
@@ -225,7 +224,7 @@
       "bindings": [
         { "key": "a", "name": "Code Action/Quick Fix", "type": "command", "command": "editor.action.quickFix" },
         { "key": "A", "name": "Source Action", "type": "command", "command": "editor.action.sourceAction" },
-        { "key": "s", "name": "Outline Focus", "type": "command", "command": "outline.focus" },
+        { "key": "s", "name": "Outline Focus", "type": "command", "command": "workbench.action.gotoSymbol" },
         { "key": "u", "name": "Organize Imports", "type": "command", "command": "editor.action.organizeImports" },
         { "key": "r", "name": "Rename", "type": "command", "command": "editor.action.rename" },
         { "key": "R", "name": "Rename File", "type": "command", "command": "file-browser.rename" }
@@ -282,7 +281,7 @@
         { "key": "c", "name": "Search Commits", "type": "command", "command": "gitlens.showCommitSearch" },
         { "key": "e", "name": "Git Explorer", "type": "command", "command": "workbench.view.scm" },
         { "key": "f", "name": "Current File History", "type": "command", "command": "git.viewFileHistory" },
-        { "key": "g", "name": "Git Explorer", "type": "command", "command": "workbench.view.scm" },
+        { "key": "g", "name": "Git Command Palette", "type": "command", "command": "gitlens.gitCommands" },
         { "key": "a", "name": "Stage", "type": "command", "command": "git.stage" },
         {
           "key": "c",
@@ -383,21 +382,25 @@
       "bindings": [
         {
           "key": "a",
-          "name": "Toggle Smooth Cursor",
+          "name": "Toggle Animations",
           "command": "toggle",
           "when": "editorTextFocus",
           "args": {
-            "id": "cursorSmoothCaretAnimation",
+            "id": "toggleAnimations",
             "value": [
-              {
-                "editor.cursorSmoothCaretAnimation.enabled": "on",
-                "editor.smoothScrolling": true,
-              },
-              {
-                "editor.cursorSmoothCaretAnimation.enabled": "off",
-                "editor.smoothScrolling": false,
-              }
+              { "editor.cursorSmoothCaretAnimation": "on", "editor.smoothScrolling": true , "editor.cursorBlinking": "expand"},
+              { "editor.cursorSmoothCaretAnimation": "off", "editor.smoothScrolling": false, "editor.cursorBlinking": "blink" }
             ]
+          }
+        },
+        {
+          "key": "t",
+          "name": "Toggle Tabs",
+          "command": "toggle",
+          "when": "editorTextFocus",
+          "args": {
+            "id": "workbench.editor.showTabs",
+            "value": [{ "workbench.editor.showTabs": "multiple" }, { "workbench.editor.showTabs": "none" }]
           }
         },
         { "key": "m", "name": "Toggle Minimap", "type": "command", "command": "editor.action.toggleMinimap" },
@@ -410,17 +413,10 @@
           "command": "toggle",
           "when": "editorTextFocus",
           "args": {
-            "id": "inlayHints",
-            "value": [
-              {
-                "editor.inlayHints.enabled": true,
-              },
-              {
-                "editor.inlayHints.enabled": false,
-              }
-            ]
+            "id": "toggleInlayHints",
+            "value": [{ "editor.inlayHints.enabled": "on" }, { "editor.inlayHints.enabled": "off" }]
           }
-        },
+        }
       ]
     },
     {
@@ -469,26 +465,13 @@
       "bindings": [
         {
           "key": "q",
-          "name": "Clear Recent Sessions",
+          "name": "Quit",
           "type": "command",
-          "command": "workbench.action.clearRecentFiles"
+          "command": "workbench.action.quit"
         },
         { "key": "q", "name": "Quit All", "type": "command", "command": "workbench.action.quit" },
         { "key": "s", "name": "Select Session", "type": "command", "command": "workbench.action.openRecent" },
         { "key": "S", "name": "Select Session", "type": "command", "command": "workbench.action.openRecent" }
-      ]
-    },
-    {
-      "keys": "q",
-      "name": "+quit/session",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "q",
-          "name": "Clear Recent Sessions",
-          "type": "command",
-          "command": "workbench.action.clearRecentFiles"
-        }
       ]
     },
     { "keys": "r", "name": "+Reactor", "type": "command", "command": "editor.action.refactor" },
@@ -697,7 +680,7 @@
   "window.systemColorTheme": "dark",
   "terminal.external.osxExec": "iTerm.app",
   "workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
-  "editor.matchBrackets": "always",
+  "editor.matchBrackets": "never",
   "workbench.colorCustomizations": {
     "terminal.background": "#00000000",
     "findThenJump.textDecorationForeground": "#000",
@@ -707,7 +690,7 @@
   "breadcrumbs.enabled": false,
 
   "workbench.layoutControl.enabled": false,
-  "workbench.colorTheme": "Tokyo Night Moon",
+  "workbench.colorTheme": "One Dark Pro Darker",
   "whichkey.sortOrder": "custom",
   "whichkey.showButtons": false,
   "whichkey.useFullWidthCharacters": true,
@@ -718,38 +701,18 @@
   "whichKeyConfigGen.normalModeNonRecursiveKeybindings": [],
   "whichKeyConfigGen.visualModeNonRecursiveKeybindings": [],
   "workbench.list.smoothScrolling": true,
-  "editor.smoothScrolling": false,
+  "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
-  "windsurf.enableSupercomplete": false,
 
   // For VSCode Forks
   "windsurf.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery",
   "windsurf.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
+  "windsurf.enableSupercomplete": false,
+
   "workbench.statusBar.visible": false,
-  // For Recursive Font
-  // "editor.tokenColorCustomizations": {
-  //   "textMateRules": [
-  //     {
-  //       "scope": [
-  //         "comment",
-  //         "entity.attribute.name",
-  //         "entity.other.attribute-name",
-  //         "entity.other.attribute-name.class",
-  //         "entity.other.attribute-name.id",
-  //         "keyword",
-  //         "constant",
-  //         "storage.modifier",
-  //         "storage.type",
-  //         "storage.type.function",
-  //         "storage.type.class",
-  //         "variable.parameter"
-  //       ],
-  //       "settings": {
-  //         "fontStyle": "italic"
-  //       }
-  //     }
-  //   ]
-  // }
+  "editor.inlayHints.enabled": "on",
+  "workbench.editor.showTabs": "multiple",
+  "workbench.activityBar.location": "top"
 }
