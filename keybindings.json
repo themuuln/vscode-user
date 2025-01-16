@@ -1,4 +1,6 @@
 [
+  { "key": "shift+right", "command": "workbench.action.moveEditorRightInGroup", "when": "vim.mode == 'Normal'" },
+  { "key": "alt+d", "command": "editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
   { "key": "shift+h", "command": "toggleexcludedfiles.toggle", "when": "explorerViewletFocus && !inputFocus" },
   { "key": "shift+a", "command": "explorer.newFolder", "when": "explorerViewletFocus && !inputFocus" },
   { "key": "x", "command": "filesExplorer.cut", "when": "explorerViewletFocus && !inputFocus" },
@@ -49,7 +51,10 @@
   { "key": "cmd+.", "command": "editor.action.quickFix" },
   { "key": "cmd+p", "command": "find-it-faster.findFiles" },
   { "key": "ctrl+/", "command": "workbench.action.terminal.toggleTerminal", "when": "terminal.active" },
+
+  // ========================================================================================================
   // Disabled keybindings
+  // ========================================================================================================
   {
     "key": "cmd+o",
     "command": "-workbench.action.files.openFileFolder",
@@ -112,17 +117,10 @@
   { "key": "shift+left", "command": "-cursorLeftSelect", "when": "textInputFocus && vim.mode != 'Visual'" },
   { "key": "shift+right", "command": "-cursorColumnSelectRight", "when": "editorColumnSelection && textInputFocus" },
   { "key": "shift+right", "command": "-cursorRightSelect", "when": "textInputFocus && vim.mode != 'Visual'" },
-  { "key": "shift+right", "command": "workbench.action.moveEditorRightInGroup", "when": "vim.mode == 'Normal'" },
   { "key": "ctrl+d", "command": "-editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
-  { "key": "alt+d", "command": "editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
   {
     "key": "cmd+.",
     "command": "-editor.action.quickFix",
     "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
   },
-  {
-    "key": "cmd+s",
-    "command": "-workbench.action.files.save"
-  },
 ]
-
